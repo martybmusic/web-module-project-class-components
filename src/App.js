@@ -37,6 +37,18 @@ class App extends React.Component {
     }
   };
 
+  toggleList = (id) => {
+    this.setState({
+      taskList: this.state.taskList.map(item => {
+        if(item.id === id){
+          return {
+            ...item, completed: !item.completed
+          }
+        }else {return item}
+      })
+    })
+  }
+
   addTask = (taskText) => {
     // console.log('test', taskText);
     const newTask = {
@@ -83,7 +95,7 @@ class App extends React.Component {
           addItem={this.addTask} 
           deleteItem={this.removeTask}
         />
-        {/* <TodoList /> */}
+        <TodoList list ={this.state.taskList} toggleItem={this.toggleList}/>
       </div>
     );
   }
