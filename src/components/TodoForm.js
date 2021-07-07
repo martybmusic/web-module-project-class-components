@@ -4,8 +4,8 @@ const TodoForm = (props) => {
     return (
         <div>
             <h1>TodoList: MVP</h1>
-            <input type="text" placeholder="enter task" onChange={}/>
-            <button type="submit" onClick={}>
+            <input type="text" placeholder="enter task" onChange={props.handleChanges}/>
+            <button type="submit" onClick={props.handleSubmit}>
                 Add Todo
             </button>
             <button>
